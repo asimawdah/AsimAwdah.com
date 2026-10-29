@@ -225,6 +225,13 @@ function serveFile(req, res, urlPath) {
     return;
   }
 
+  // The RSS feed is generated at out/rss.xml but is linked (and requested) as
+  // /rss or /rss/. Serve rss.xml for both so the feed loads without the .xml
+  // extension and with the correct content type.
+  if (urlPath === '/rss' || urlPath === '/rss/') {
+    filePath = path.join(OUT_DIR, 'rss.xml');
+  }
+
   try {
     if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
       filePath = path.join(filePath, 'index.html');

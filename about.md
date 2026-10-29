@@ -4,23 +4,12 @@ date: 2026-10-29
 slug: about
 ---
 
-My name is Asim Awdah.
+![Asim Awdah](/public/profile.jpeg)
 
-I build software and write about it here. This is my personal corner of the internet—a place to share essays, notes, and ideas without algorithms, trackers, or noise.
+I'm Asim Awdah. I build software, with a particular interest in developer tools and infrastructure.
 
-### Background
+I care about making programming easier to approach and about building software that helps people do their work. The details matter to me: how a tool behaves when something goes wrong, whether you can understand what it is doing, and whether it asks for more attention than the task deserves.
 
-I've spent years working on developer tools and infrastructure. I care deeply about making coding more approachable, and about software that serves people rather than the other way around.
+This site is where I write through those ideas. The essays are about software, tools, and the choices we make while building them. I publish them as plain Markdown because I want writing here to stay simple.
 
-### What you'll find here
-
-Essays on programming, systems, tools, and the occasional reflection on how we build things. Everything is written in markdown and published as static HTML.
-
-### Get in touch
-
-- [Twitter](https://twitter.com/asimawnah)
-- [GitHub](https://github.com/asimawnah)
-- [Email](mailto:hello@asimawnah.com)
-- [RSS](/rss)
-
-If you're reading this, thanks for stopping by.
+You can find me on [Twitter](https://twitter.com/asimawnah), [GitHub](https://github.com/asimawnah), or by [email](mailto:hello@asimawnah.com). The [RSS feed](/rss) is there if you'd rather follow along that way.
