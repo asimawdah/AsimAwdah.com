@@ -1,0 +1,15 @@
+{
+  "name": "asimawnah.com",
+  "version": "1.0.0",
+  "description": "Asim Awdah's personal blog - markdown-based static site matching amasad.me design",
+  "private": true,
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js --watch"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^5.0.0",
+    "highlight.js": "^11.7.0"
+  }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>On Simple Publishing | Asim Awdah</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1" />
+    <meta property="og:title" content="On Simple Publishing | Asim Awdah" />
+    <meta property="og:description" content="Asim Awdah's site" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://asimawnah.com/why-i-blog/" />
+    <meta property="og:image" content="/public/pic.png" />
+    <meta property="og:site_name" content="asimawnah.com" />
+    <meta name="author" property="og:author" content="asimawnah.com" />
+    <meta charset="UTF-8" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@asimawnah" />
+    <meta name="twitter:title" content="On Simple Publishing | Asim Awdah" />
+    <meta name="twitter:description" content="Asim Awdah's site" />
+    <meta name="twitter:image" content="/public/pic.png" />
+    <link rel="alternate" type="application/rss+xml" href="https://asimawnah.com/rss" />
+    <link rel="icon" type="image/png" href="//www.gravatar.com/avatar/00000000000000000000000000000000.png?s=32" />
+    <link href="//fonts.googleapis.com/css?family=Lato:300,400|Questrial|Raleway:400,100" rel='stylesheet' type='text/css' />
+    <link type="text/css" rel="stylesheet" href="/public/css/main.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css" />
+  </head>
+  <body>
+    <header>
+      <a href="/">Asim Awdah</a>
+    </header>
+    <a target="_blank" href="https://github.com/asimawnah" class="replit">
+      <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
+    </a>
+
+  <article class="index postContent">
+    <nav>
+      <a href="/about/">About</a>
+      <a href="https://twitter.com/asimawnah">Twitter</a>
+      <a href="mailto:hello@asimawnah.com">Email</a>
+      <a href="https://github.com/asimawnah">Github</a>
+      <a href="https://asimawnah.com/rss">RSS</a>
+    </nav>
+    <div class="postItem">
+      <div class="postTitle"><a href="#">On Simple Publishing</a></div>
+      <div class="postAuthor">2026-10-28 · Asim Awdah</div>
+      <div class="post-seperator"></div>
+      <div class="postContentBody">
+        <p>Most publishing platforms today are heavy. They want a database, a user account, a theme editor, and a monthly fee. I wanted none of that.</p>
+<p>So this site is just a folder of markdown files. To publish:</p>
+<ol>
+<li>Create <code>posts/my-essay.md</code>.</li>
+<li>Add frontmatter (title, date, description, slug).</li>
+<li>Write the essay in markdown.</li>
+<li>Run <code>npm run build</code>.</li>
+<li>Deploy the <code>out/</code> folder.</li>
+</ol>
+<p>That&#39;s it. The build script reads the markdown, converts it to HTML with <a href="https://marked.js.org">marked</a> and <a href="https://highlightjs.org">highlight.js</a>, and stamps it with the same minimal design as <a href="https://amasad.me">amasad.me</a>.</p>
+<h2 id="the-frontmatter">The frontmatter</h2>
+<p>Each post starts with YAML frontmatter:</p>
+<pre><code class="language-yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">title:</span> <span class="hljs-string">My</span> <span class="hljs-string">Essay</span> <span class="hljs-string">Title</span>
+<span class="hljs-attr">date:</span> <span class="hljs-number">2026-10-29</span>
+<span class="hljs-attr">description:</span> <span class="hljs-string">A</span> <span class="hljs-string">short</span> <span class="hljs-string">summary.</span>
+<span class="hljs-attr">slug:</span> <span class="hljs-string">my-essay</span>
+<span class="hljs-meta">---</span>
+</code></pre>
+<p>Everything after the closing <code>---</code> is the essay body, written in standard markdown.</p>
+<h2 id="design">Design</h2>
+<p>The visual style is deliberately spare: Questrial for the header, Lato for headings, a serif body font, blue links with an underline on hover, and a centered essay column. Code blocks are syntax highlighted. There&#39;s an RSS feed at <code>/rss</code> so readers can subscribe without an algorithm.</p>
+<p>If you want to copy this for your own site, clone the repo, replace the posts, and change the name in <code>build.js</code> and <code>templates/</code>.</p>
+
+      </div>
+      <div class="post-seperator"></div>
+    </div>
+  </article>
+  </body>
+</html>
