@@ -40,4 +40,4 @@ Code is hard enough without your tools second-guessing you.
 
 ---
 
-*If you want to discuss tools, I'm at hello@asimawnah.com.*
+*If you want to discuss tools, I'm at hello@asimawdah.com.*

@@ -35,4 +35,4 @@ Either way, you're better than you were. Now write something your future self wi
 
 ---
 
-*hello@asimawnah.com*
+*hello@asimawdah.com*

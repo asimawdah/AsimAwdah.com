@@ -38,4 +38,4 @@ The default should be local. The network should be the exception.
 
 ---
 
-*Reach me at hello@asimawnah.com.*
+*Reach me at hello@asimawdah.com.*

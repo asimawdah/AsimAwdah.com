@@ -39,4 +39,4 @@ Choose boring. Your future self will thank you.
 
 ---
 
-*Questions? hello@asimawnah.com*
+*Questions? hello@asimawdah.com*

@@ -12,4 +12,4 @@ I care about making programming easier to approach and about building software t
 
 This site is where I write through those ideas. The essays are about software, tools, and the choices we make while building them. I publish them as plain Markdown because I want writing here to stay simple.
 
-You can find me on [Twitter](https://twitter.com/asimawnah), [GitHub](https://github.com/asimawnah), or by [email](mailto:hello@asimawnah.com). The [RSS feed](/rss) is there if you'd rather follow along that way.
+You can find me on [Twitter](https://twitter.com/asimawdah), [GitHub](https://github.com/asimawdah), or by [email](mailto:hello@asimawdah.com). The [RSS feed](/rss) is there if you'd rather follow along that way.

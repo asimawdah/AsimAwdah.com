@@ -13,10 +13,23 @@ const TEMPLATES_DIR = path.join(ROOT, 'templates');
 
 const SITE_TITLE = 'Asim Awdah';
 const SITE_DESC = "Asim Awdah's site";
-const SITE_URL = 'https://asimawnah.com';
+const SITE_URL = 'https://asimawdah.com';
 const AUTHOR = 'Asim Awdah';
 const EMAIL_HASH = '';
-const TWITTER = '@asimawnah';
+const TWITTER = '@asimawdah';
+const NOT_FOUND_PAGE = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0;url=/" />
+    <title>Page not found | ${SITE_TITLE}</title>
+    <script>window.location.replace('/');</script>
+  </head>
+  <body>
+    <p>Page not found. <a href="/">Go to the homepage</a>.</p>
+  </body>
+</html>
+`;
 
 const renderer = new marked.Renderer();
 
@@ -173,6 +186,7 @@ function build() {
 
   // Index
   fs.writeFileSync(path.join(OUT_DIR, 'index.html'), renderIndex(posts, css, '/about/'));
+  fs.writeFileSync(path.join(OUT_DIR, '404.html'), NOT_FOUND_PAGE);
 
   // Posts
   for (const post of posts) {
@@ -242,8 +256,13 @@ function serveFile(req, res, urlPath) {
 
   fs.readFile(filePath, (err, data) => {
     if (err) {
-      res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
-      res.end('404 Not Found');
+      if (err.code === 'ENOENT' || err.code === 'ENOTDIR') {
+        res.writeHead(302, { Location: '/', 'Cache-Control': 'no-cache' });
+        res.end();
+        return;
+      }
+      res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
+      res.end('Internal Server Error');
       return;
     }
     const ext = path.extname(filePath).toLowerCase();
@@ -337,4 +356,3 @@ function main() {
 }
 
 main();
-
