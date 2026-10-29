@@ -25,6 +25,18 @@ A minimal, markdown-based personal blog matching the [amasad.me](https://amasad.
 
 3. Publish the generated `out/` directory (e.g. push to GitHub Pages, Netlify, Vercel, or any static host).
 
+## Local preview
+
+```bash
+npm run dev
+```
+
+This builds the site, serves it at <http://localhost:3000>, and rebuilds automatically when files in `posts/`, `about.md`, `public/`, or `templates/` change. Set `PORT` to use a different port:
+
+```bash
+PORT=8080 npm run dev
+```
+
 ## Project structure
 
 - `posts/` — your markdown essays

@@ -4,7 +4,7 @@
     <title>Asim Awdah</title>
     <link>https://asimawnah.com</link>
     <description>Asim Awdah&#039;s site</description>
-    <lastBuildDate>Thu, 29 Oct 2026 21:36:28 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 23:14:04 GMT</lastBuildDate>
     
   <item>
     <title>Hello World</title>
@@ -15,11 +15,43 @@
   </item>
 
   <item>
+    <title>The IDE Should Get Out of the Way</title>
+    <link>https://asimawnah.com/the-ide-should-get-out-of-the-way/</link>
+    <guid isPermaLink="true">https://asimawnah.com/the-ide-should-get-out-of-the-way/</guid>
+    <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Why I prefer editors that stay out of my head over ones that try to think for me.</description>
+  </item>
+
+  <item>
     <title>On Simple Publishing</title>
     <link>https://asimawnah.com/why-i-blog/</link>
     <guid isPermaLink="true">https://asimawnah.com/why-i-blog/</guid>
     <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
     <description>Why I chose a markdown-only publishing system for AsimAwdah.com.</description>
+  </item>
+
+  <item>
+    <title>Simple Software Lasts Longer</title>
+    <link>https://asimawnah.com/simple-software-lasts-longer/</link>
+    <guid isPermaLink="true">https://asimawnah.com/simple-software-lasts-longer/</guid>
+    <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
+    <description>On choosing simplicity over cleverness when building tools and systems.</description>
+  </item>
+
+  <item>
+    <title>Writing Code That Works Offline</title>
+    <link>https://asimawnah.com/writing-code-that-works-offline/</link>
+    <guid isPermaLink="true">https://asimawnah.com/writing-code-that-works-offline/</guid>
+    <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Why local-first, network-independent software is worth building.</description>
+  </item>
+
+  <item>
+    <title>On Reading Old Code</title>
+    <link>https://asimawnah.com/on-reading-old-code/</link>
+    <guid isPermaLink="true">https://asimawnah.com/on-reading-old-code/</guid>
+    <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Why reading code you wrote years ago is one of the best ways to improve.</description>
   </item>
 
   </channel>
