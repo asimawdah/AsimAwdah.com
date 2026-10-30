@@ -17,19 +17,6 @@ const SITE_URL = 'https://asimawdah.com';
 const AUTHOR = 'Asim Awdah';
 const EMAIL_HASH = '';
 const TWITTER = '@asimawdah';
-const NOT_FOUND_PAGE = `<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="0;url=/" />
-    <title>Page not found | ${SITE_TITLE}</title>
-    <script>window.location.replace('/');</script>
-  </head>
-  <body>
-    <p>Page not found. <a href="/">Go to the homepage</a>.</p>
-  </body>
-</html>
-`;
 
 const renderer = new marked.Renderer();
 
@@ -186,7 +173,6 @@ function build() {
 
   // Index
   fs.writeFileSync(path.join(OUT_DIR, 'index.html'), renderIndex(posts, css, '/about/'));
-  fs.writeFileSync(path.join(OUT_DIR, '404.html'), NOT_FOUND_PAGE);
 
   // Posts
   for (const post of posts) {
