@@ -2,24 +2,72 @@
 <rss version="2.0">
   <channel>
     <title>Asim Awdah</title>
-    <link>https://asimawnah.com</link>
+    <link>https://asimawdah.com</link>
     <description>Asim Awdah&#039;s site</description>
-    <lastBuildDate>Thu, 29 Oct 2026 21:36:28 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2026 23:52:55 GMT</lastBuildDate>
     
   <item>
+    <title>A Tool Should Respect Your Attention</title>
+    <link>https://asimawdah.com/a-tool-should-respect-your-attention/</link>
+    <guid isPermaLink="true">https://asimawdah.com/a-tool-should-respect-your-attention/</guid>
+    <pubDate>Fri, 30 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Developer tools should help people stay with the problem they came to solve.</description>
+  </item>
+
+  <item>
+    <title>Infrastructure Is Part of the Product</title>
+    <link>https://asimawdah.com/infrastructure-is-part-of-the-product/</link>
+    <guid isPermaLink="true">https://asimawdah.com/infrastructure-is-part-of-the-product/</guid>
+    <pubDate>Fri, 30 Oct 2026 00:00:00 GMT</pubDate>
+    <description>The systems behind an application shape what its users can rely on.</description>
+  </item>
+
+  <item>
+    <title>Why I Keep This Site Small</title>
+    <link>https://asimawdah.com/why-i-blog/</link>
+    <guid isPermaLink="true">https://asimawdah.com/why-i-blog/</guid>
+    <pubDate>Fri, 30 Oct 2026 00:00:00 GMT</pubDate>
+    <description>A personal site should make it easy to write, publish, and leave the words alone.</description>
+  </item>
+
+  <item>
     <title>Hello World</title>
-    <link>https://asimawnah.com/hello-world/</link>
-    <guid isPermaLink="true">https://asimawnah.com/hello-world/</guid>
+    <link>https://asimawdah.com/hello-world/</link>
+    <guid isPermaLink="true">https://asimawdah.com/hello-world/</guid>
     <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
     <description>My first post on the new AsimAwdah.com.</description>
   </item>
 
   <item>
-    <title>On Simple Publishing</title>
-    <link>https://asimawnah.com/why-i-blog/</link>
-    <guid isPermaLink="true">https://asimawnah.com/why-i-blog/</guid>
+    <title>The IDE Should Get Out of the Way</title>
+    <link>https://asimawdah.com/the-ide-should-get-out-of-the-way/</link>
+    <guid isPermaLink="true">https://asimawdah.com/the-ide-should-get-out-of-the-way/</guid>
     <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
-    <description>Why I chose a markdown-only publishing system for AsimAwdah.com.</description>
+    <description>Why I prefer editors that stay out of my head over ones that try to think for me.</description>
+  </item>
+
+  <item>
+    <title>Simple Software Lasts Longer</title>
+    <link>https://asimawdah.com/simple-software-lasts-longer/</link>
+    <guid isPermaLink="true">https://asimawdah.com/simple-software-lasts-longer/</guid>
+    <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
+    <description>On choosing simplicity over cleverness when building tools and systems.</description>
+  </item>
+
+  <item>
+    <title>Writing Code That Works Offline</title>
+    <link>https://asimawdah.com/writing-code-that-works-offline/</link>
+    <guid isPermaLink="true">https://asimawdah.com/writing-code-that-works-offline/</guid>
+    <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Why local-first, network-independent software is worth building.</description>
+  </item>
+
+  <item>
+    <title>On Reading Old Code</title>
+    <link>https://asimawdah.com/on-reading-old-code/</link>
+    <guid isPermaLink="true">https://asimawdah.com/on-reading-old-code/</guid>
+    <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
+    <description>Why reading code you wrote years ago is one of the best ways to improve.</description>
   </item>
 
   </channel>

@@ -1,39 +1,24 @@
 ---
-title: On Simple Publishing
-date: 2026-10-28
-description: Why I chose a markdown-only publishing system for AsimAwdah.com.
+title: Why I Keep This Site Small
+date: 2026-10-30
+description: A personal site should make it easy to write, publish, and leave the words alone.
 slug: why-i-blog
 ---
 
-Most publishing platforms today are heavy. They want a database, a user account, a theme editor, and a monthly fee. I wanted none of that.
+I wanted a place to write that felt like mine. Not a feed to keep up with, or a profile to maintain. Just a page where I could put an idea into words and let someone read it.
 
-So this site is just a folder of markdown files. To publish:
+The site is made of Markdown files. I can open one in an editor, write, and publish it. There is no separate dashboard between me and the essay. That small distance matters: when writing is easy to start, I spend less time arranging the place where it happens.
 
-1. Create `posts/my-essay.md`.
-2. Add frontmatter (title, date, description, slug).
-3. Write the essay in markdown.
-4. Run `npm run build`.
-5. Deploy the `out/` folder.
+I also like that the writing can stand on its own. The page has a title, a date, and the essay. It does not need to turn every thought into a conversation or ask a reader to make an account before they can read it.
 
-That's it. The build script reads the markdown, converts it to HTML with [marked](https://marked.js.org) and [highlight.js](https://highlightjs.org), and stamps it with the same minimal design as [amasad.me](https://amasad.me).
+## A place to think
 
-## The frontmatter
+I work on software, so it is easy to spend a lot of time talking about tools and very little time explaining what I think they are for. Writing gives me a reason to slow down and make those ideas clearer.
 
-Each post starts with YAML frontmatter:
+Some essays here will be about programming and developer tools. Others will be about the choices behind software: what to make simple, what to leave alone, and who a tool is helping. I do not expect to have a final answer for each question. I want to record the thinking while it is still worth examining.
 
-```yaml
----
-title: My Essay Title
-date: 2026-10-29
-description: A short summary.
-slug: my-essay
----
-```
+## Keeping the publishing part boring
 
-Everything after the closing `---` is the essay body, written in standard markdown.
+This site uses plain files and a small build script. That is a practical choice, but it is also a reminder of what I want the site to be: a home for the writing, not another project that needs constant attention.
 
-## Design
-
-The visual style is deliberately spare: Questrial for the header, Lato for headings, a serif body font, blue links with an underline on hover, and a centered essay column. Code blocks are syntax highlighted. There's an RSS feed at `/rss` so readers can subscribe without an algorithm.
-
-If you want to copy this for your own site, clone the repo, replace the posts, and change the name in `build.js` and `templates/`.
+When I have something to say, I can write it here. When I do not, the site can sit quietly.

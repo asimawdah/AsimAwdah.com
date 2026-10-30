@@ -1,4 +1,5 @@
 const fs = require('fs');
+const http = require('http');
 const path = require('path');
 const matter = require('gray-matter');
 const marked = require('marked');
@@ -12,16 +13,28 @@ const TEMPLATES_DIR = path.join(ROOT, 'templates');
 
 const SITE_TITLE = 'Asim Awdah';
 const SITE_DESC = "Asim Awdah's site";
-const SITE_URL = 'https://asimawnah.com';
+const SITE_URL = 'https://asimawdah.com';
 const AUTHOR = 'Asim Awdah';
 const EMAIL_HASH = '';
-const TWITTER = '@asimawnah';
+const TWITTER = '@asimawdah';
+
+const renderer = new marked.Renderer();
+
+renderer.code = (code, infostring) => {
+  const lang = (infostring || '').match(/\S*/)[0];
+  const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+  const body = hljs.highlight(code, { language }).value.replace(/\n$/, '') + '\n';
+  const langClass = lang ? ` class="language-${lang.replace(/[^\w-]/g, '')}"` : '';
+  return `<pre><code${langClass}>${body}</code></pre>\n`;
+};
+
+renderer.heading = (text, level, raw, slugger) =>
+  `<h${level} id="${slugger.slug(raw)}">${text}</h${level}>\n`;
 
 marked.use({
-  highlight: (code, lang) => {
-    const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-    return hljs.highlight(code, { language }).value;
-  }
+  renderer,
+  mangle: false,
+  headerIds: false,
 });
 
 function replaceAll(tmpl, key, value) {
@@ -135,9 +148,7 @@ function generateRss(posts) {
 </rss>`;
 }
 
-function main() {
-  const watch = process.argv.includes('--watch');
-
+function build() {
   if (!fs.existsSync(POSTS_DIR)) {
     console.error(`posts directory not found: ${POSTS_DIR}`);
     process.exit(1);
@@ -184,13 +195,149 @@ function main() {
   fs.writeFileSync(path.join(OUT_DIR, 'rss.xml'), generateRss(posts));
 
   console.log(`Built ${posts.length} posts -> ${OUT_DIR}`);
+}
 
-  if (watch) {
-    const chokidar = require('chokidar');
-    chokidar.watch([POSTS_DIR, path.join(ROOT, 'about.md'), PUBLIC_DIR, TEMPLATES_DIR]).on('change', () => {
-      console.log('Change detected, rebuilding...');
-      main();
+const MIME_TYPES = {
+  '.html': 'text/html; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.js': 'text/javascript; charset=utf-8',
+  '.json': 'application/json; charset=utf-8',
+  '.xml': 'application/rss+xml; charset=utf-8',
+  '.txt': 'text/plain; charset=utf-8',
+  '.svg': 'image/svg+xml',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.gif': 'image/gif',
+  '.webp': 'image/webp',
+  '.ico': 'image/x-icon',
+  '.woff': 'font/woff',
+  '.woff2': 'font/woff2',
+  '.ttf': 'font/ttf',
+};
+
+function serveFile(req, res, urlPath) {
+  let filePath = path.join(OUT_DIR, urlPath);
+  const relative = path.relative(OUT_DIR, filePath);
+  if (relative.startsWith('..') || path.isAbsolute(relative)) {
+    res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
+    res.end('Forbidden');
+    return;
+  }
+
+  // The RSS feed is generated at out/rss.xml but is linked (and requested) as
+  // /rss or /rss/. Serve rss.xml for both so the feed loads without the .xml
+  // extension and with the correct content type.
+  if (urlPath === '/rss' || urlPath === '/rss/') {
+    filePath = path.join(OUT_DIR, 'rss.xml');
+  }
+
+  try {
+    if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
+      filePath = path.join(filePath, 'index.html');
+    }
+  } catch (err) {
+    filePath = path.join(OUT_DIR, 'index.html');
+  }
+
+  fs.readFile(filePath, (err, data) => {
+    if (err) {
+      if (err.code === 'ENOENT' || err.code === 'ENOTDIR') {
+        res.writeHead(302, { Location: '/', 'Cache-Control': 'no-cache' });
+        res.end();
+        return;
+      }
+      res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
+      res.end('Internal Server Error');
+      return;
+    }
+    const ext = path.extname(filePath).toLowerCase();
+    res.writeHead(200, {
+      'Content-Type': MIME_TYPES[ext] || 'application/octet-stream',
+      'Cache-Control': 'no-cache',
     });
+    res.end(req.method === 'HEAD' ? undefined : data);
+  });
+}
+
+function createServer() {
+  return http.createServer((req, res) => {
+    let urlPath;
+    try {
+      urlPath = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+    } catch (err) {
+      res.writeHead(400, { 'Content-Type': 'text/plain; charset=utf-8' });
+      res.end('Bad Request');
+      return;
+    }
+    serveFile(req, res, urlPath);
+  });
+}
+
+function startServer(port, attemptsLeft = 10) {
+  const server = createServer();
+  server.on('error', (err) => {
+    if (err.code === 'EADDRINUSE' && attemptsLeft > 0) {
+      startServer(port + 1, attemptsLeft - 1);
+      return;
+    }
+    console.error(err.message);
+    process.exit(1);
+  });
+  server.listen(port, '127.0.0.1', () => {
+    console.log(`\nDev server running at:\n  http://localhost:${port}\n`);
+    console.log('Watching posts, about.md, public, and templates for changes...\n');
+  });
+}
+
+function watch() {
+  let timer = null;
+  let building = false;
+  let queued = false;
+
+  function rebuild() {
+    if (building) {
+      queued = true;
+      return;
+    }
+    building = true;
+    try {
+      build();
+    } catch (err) {
+      console.error(`Build failed: ${err.message}`);
+    } finally {
+      building = false;
+      if (queued) {
+        queued = false;
+        schedule();
+      }
+    }
+  }
+
+  function schedule() {
+    clearTimeout(timer);
+    timer = setTimeout(rebuild, 100);
+  }
+
+  const targets = [POSTS_DIR, PUBLIC_DIR, TEMPLATES_DIR];
+  for (const target of targets) {
+    if (!fs.existsSync(target)) continue;
+    fs.watch(target, { recursive: true }, schedule);
+  }
+  const aboutPath = path.join(ROOT, 'about.md');
+  if (fs.existsSync(aboutPath)) {
+    fs.watchFile(aboutPath, { interval: 300 }, schedule);
+  }
+}
+
+function main() {
+  const watchMode = process.argv.includes('--watch');
+
+  build();
+
+  if (watchMode) {
+    startServer(Number(process.env.PORT) || 3000);
+    watch();
   }
 }
 

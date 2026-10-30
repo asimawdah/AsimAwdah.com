@@ -23,7 +23,33 @@ A minimal, markdown-based personal blog matching the [amasad.me](https://amasad.
    npm run build
    ```
 
-3. Publish the generated `out/` directory (e.g. push to GitHub Pages, Netlify, Vercel, or any static host).
+3. Publish the generated `out/` directory.
+
+## VPS with Nginx
+
+The Nginx server block is in [`deploy/nginx.conf`](./deploy/nginx.conf). It serves the generated `out/` directory and redirects requests for missing paths straight to `/`.
+
+Copy the file to `/etc/nginx/sites-available/asimawdah.com`, update its `root` to the absolute path of this project's `out/` directory, enable the site, then test and reload Nginx:
+
+```bash
+sudo ln -s /etc/nginx/sites-available/asimawdah.com /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx
+```
+
+Point your domain's DNS records at the VPS. Set up HTTPS for the domain after the HTTP site is working.
+
+## Local preview
+
+```bash
+npm run dev
+```
+
+This builds the site, serves it at <http://localhost:3000>, and rebuilds automatically when files in `posts/`, `about.md`, `public/`, or `templates/` change. Set `PORT` to use a different port:
+
+```bash
+PORT=8080 npm run dev
+```
 
 ## Project structure
 

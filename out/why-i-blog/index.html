@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>On Simple Publishing | Asim Awdah</title>
+    <title>Why I Keep This Site Small | Asim Awdah</title>
     <meta name="viewport" content="width=device-width, minimum-scale=1" />
-    <meta property="og:title" content="On Simple Publishing | Asim Awdah" />
+    <meta property="og:title" content="Why I Keep This Site Small | Asim Awdah" />
     <meta property="og:description" content="Asim Awdah's site" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://asimawnah.com/why-i-blog/" />
+    <meta property="og:url" content="https://asimawdah.com/why-i-blog/" />
     <meta property="og:image" content="/public/pic.png" />
-    <meta property="og:site_name" content="asimawnah.com" />
-    <meta name="author" property="og:author" content="asimawnah.com" />
+    <meta property="og:site_name" content="asimawdah.com" />
+    <meta name="author" property="og:author" content="asimawdah.com" />
     <meta charset="UTF-8" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@asimawnah" />
-    <meta name="twitter:title" content="On Simple Publishing | Asim Awdah" />
+    <meta name="twitter:site" content="@asimawdah" />
+    <meta name="twitter:title" content="Why I Keep This Site Small | Asim Awdah" />
     <meta name="twitter:description" content="Asim Awdah's site" />
     <meta name="twitter:image" content="/public/pic.png" />
-    <link rel="alternate" type="application/rss+xml" href="https://asimawnah.com/rss" />
-    <link rel="icon" type="image/png" href="//www.gravatar.com/avatar/00000000000000000000000000000000.png?s=32" />
+    <link rel="alternate" type="application/rss+xml" href="https://asimawdah.com/rss" />
+    <link rel="icon" href="/public/favicon.ico" />
+    <link rel="icon" type="image/png" href="/public/favicon.png" />
     <link href="//fonts.googleapis.com/css?family=Lato:300,400|Questrial|Raleway:400,100" rel='stylesheet' type='text/css' />
     <link type="text/css" rel="stylesheet" href="/public/css/main.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css" />
@@ -26,46 +27,32 @@
     <header>
       <a href="/">Asim Awdah</a>
     </header>
-    <a target="_blank" href="https://github.com/asimawnah" class="replit">
+    <a target="_blank" href="https://github.com/asimawdah" class="replit">
       <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" />
     </a>
 
   <article class="index postContent">
     <nav>
       <a href="/about/">About</a>
-      <a href="https://twitter.com/asimawnah">Twitter</a>
-      <a href="mailto:hello@asimawnah.com">Email</a>
-      <a href="https://github.com/asimawnah">Github</a>
-      <a href="https://asimawnah.com/rss">RSS</a>
+      <a href="https://twitter.com/asimawdah">Twitter</a>
+      <a href="mailto:hello@asimawdah.com">Email</a>
+      <a href="https://github.com/asimawdah">Github</a>
+      <a href="https://asimawdah.com/rss">RSS</a>
     </nav>
     <div class="postItem">
-      <div class="postTitle"><a href="#">On Simple Publishing</a></div>
-      <div class="postAuthor">2026-10-28 · Asim Awdah</div>
+      <div class="postTitle"><a href="#">Why I Keep This Site Small</a></div>
+      <div class="postAuthor">2026-10-30 · Asim Awdah</div>
       <div class="post-seperator"></div>
       <div class="postContentBody">
-        <p>Most publishing platforms today are heavy. They want a database, a user account, a theme editor, and a monthly fee. I wanted none of that.</p>
-<p>So this site is just a folder of markdown files. To publish:</p>
-<ol>
-<li>Create <code>posts/my-essay.md</code>.</li>
-<li>Add frontmatter (title, date, description, slug).</li>
-<li>Write the essay in markdown.</li>
-<li>Run <code>npm run build</code>.</li>
-<li>Deploy the <code>out/</code> folder.</li>
-</ol>
-<p>That&#39;s it. The build script reads the markdown, converts it to HTML with <a href="https://marked.js.org">marked</a> and <a href="https://highlightjs.org">highlight.js</a>, and stamps it with the same minimal design as <a href="https://amasad.me">amasad.me</a>.</p>
-<h2 id="the-frontmatter">The frontmatter</h2>
-<p>Each post starts with YAML frontmatter:</p>
-<pre><code class="language-yaml"><span class="hljs-meta">---</span>
-<span class="hljs-attr">title:</span> <span class="hljs-string">My</span> <span class="hljs-string">Essay</span> <span class="hljs-string">Title</span>
-<span class="hljs-attr">date:</span> <span class="hljs-number">2026-10-29</span>
-<span class="hljs-attr">description:</span> <span class="hljs-string">A</span> <span class="hljs-string">short</span> <span class="hljs-string">summary.</span>
-<span class="hljs-attr">slug:</span> <span class="hljs-string">my-essay</span>
-<span class="hljs-meta">---</span>
-</code></pre>
-<p>Everything after the closing <code>---</code> is the essay body, written in standard markdown.</p>
-<h2 id="design">Design</h2>
-<p>The visual style is deliberately spare: Questrial for the header, Lato for headings, a serif body font, blue links with an underline on hover, and a centered essay column. Code blocks are syntax highlighted. There&#39;s an RSS feed at <code>/rss</code> so readers can subscribe without an algorithm.</p>
-<p>If you want to copy this for your own site, clone the repo, replace the posts, and change the name in <code>build.js</code> and <code>templates/</code>.</p>
+        <p>I wanted a place to write that felt like mine. Not a feed to keep up with, or a profile to maintain. Just a page where I could put an idea into words and let someone read it.</p>
+<p>The site is made of Markdown files. I can open one in an editor, write, and publish it. There is no separate dashboard between me and the essay. That small distance matters: when writing is easy to start, I spend less time arranging the place where it happens.</p>
+<p>I also like that the writing can stand on its own. The page has a title, a date, and the essay. It does not need to turn every thought into a conversation or ask a reader to make an account before they can read it.</p>
+<h2 id="a-place-to-think">A place to think</h2>
+<p>I work on software, so it is easy to spend a lot of time talking about tools and very little time explaining what I think they are for. Writing gives me a reason to slow down and make those ideas clearer.</p>
+<p>Some essays here will be about programming and developer tools. Others will be about the choices behind software: what to make simple, what to leave alone, and who a tool is helping. I do not expect to have a final answer for each question. I want to record the thinking while it is still worth examining.</p>
+<h2 id="keeping-the-publishing-part-boring">Keeping the publishing part boring</h2>
+<p>This site uses plain files and a small build script. That is a practical choice, but it is also a reminder of what I want the site to be: a home for the writing, not another project that needs constant attention.</p>
+<p>When I have something to say, I can write it here. When I do not, the site can sit quietly.</p>
 
       </div>
       <div class="post-seperator"></div>
